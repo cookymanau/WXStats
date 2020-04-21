@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient; //added this to access SQL Servers
+using static WXStats.Globals;
 
 namespace WXStats
 {
@@ -60,24 +61,55 @@ namespace WXStats
             SqlConnection conn;
             SqlDataReader rdr = null;
             conn = new SqlConnection(connectionString);
-            SqlCommand sqlCmd = new SqlCommand($"select top {pointcount} [TEMP] from {tablename} ORDER BY [TIME] DESC ", conn);
+            SqlCommand sqlCmd = new SqlCommand($"select top {Globals.pointcount} {Globals.fieldname} from {tablename} ORDER BY [TIME] DESC ", conn);
             conn.Open();
             rdr = sqlCmd.ExecuteReader();
             //string Val = (string)sqlCmd.ExecuteScalar();
             while (rdr.Read())
             {
-                tempdata[cnt] = (double)rdr[0];
+                tempdata[cnt] = (double)rdr[0];  //errors
                 cnt += 1;
 
             }
             conn.Close();
             return tempdata;
+        }//end of method
+
+        public double[,] getTemperatureData(int pointcount, string table1,string table2)
+        {
+            double[,] tempdata = new double[pointcount,2];
+            string sqlQuery = $@"
+
+select distinct top {pointcount} * from (
+select top 100 percent a.TEMP as WXtemp1, b.TEMP as WXtemp2 from {table1} a inner join {table2} b on a.TIME=b.TIME 
+where a.TIME between convert(DATETIME,'{Globals.startDate}') AND CONVERT(DATETIME,'{Globals.endDate}') 
+ORDER BY a.TIME
+)a
 
 
 
 
-        }
 
+";
+            int cnt = 0;
+            SqlConnection conn;
+            SqlDataReader rdr = null;
+            conn = new SqlConnection(connectionString);
+            SqlCommand sqlCmd = new SqlCommand(sqlQuery, conn);
+            conn.Open();
+            rdr = sqlCmd.ExecuteReader();
+            //string Val = (string)sqlCmd.ExecuteScalar();
+            while (rdr.Read())
+            {
+                tempdata[cnt,0] = (double)rdr["WXtemp1"];
+                tempdata[cnt,1] = (double)rdr["WXtemp2"];
+
+                cnt += 1;
+
+            }
+            conn.Close();
+            return tempdata;
+        }//end of method
 
 
 

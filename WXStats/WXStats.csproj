@@ -65,10 +65,29 @@
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmTempPlot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmTempPlot.Designer.cs">
+      <DependentUpon>frmTempPlot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmXYplot.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmXYplot.Designer.cs">
+      <DependentUpon>frmXYplot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Globals.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmTempPlot.resx">
+      <DependentUpon>frmTempPlot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmXYplot.resx">
+      <DependentUpon>frmXYplot.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

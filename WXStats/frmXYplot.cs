@@ -52,7 +52,11 @@ namespace WXStats
 
                     //might as well put the data in the grid
                     dgXY.Rows.Add();
-                    dgXY.Rows[i].Cells["dgXYrecord"].Value = i.ToString();
+                    try
+                    {
+                        dgXY.Rows[i].Cells["dgXYrecord"].Value = i.ToString(); //puts the record no on the dgXY
+                    }
+                    catch { }
                     dgXY.Rows[i].Cells["dgXYx"].Value = t1[i];
                     dgXY.Rows[i].Cells["dgXYy"].Value = t2[i];
 
@@ -117,15 +121,17 @@ namespace WXStats
             formsPlot1.plt.Legend();
 
             //this draws the scatter plot
-            formsPlot1.plt.PlotScatter(t1, t2, Color.Red, lineWidth: 0, markerSize: 5);
+            formsPlot1.plt.PlotScatter(t1, t2, Color.DarkCyan, lineWidth: 0, markerSize: 5,label:"Data");
 
-            //draws the regrsson line
-            // formsPlot1.plt.PlotLine(model.slope,model.offset,(t1[(int)0],t1[(int)popt1.max]),lineWidth:2);
-            //formsPlot1.plt.PlotLine(model.slope,model.offset,(t1[0],t1.Length-1),lineWidth:2);
-            formsPlot1.plt.PlotLine(model.slope, model.offset, (axisMin, axisMax), lineWidth: 2, color: Color.BlueViolet);
+            // draws the regresion line
+            formsPlot1.plt.PlotLine(model.slope, model.offset, (axisMin, axisMax), lineWidth: 2, label:"Regression",color: Color.BlueViolet);
 
             //plot a 45 degree line = X=Y
-            formsPlot1.plt.PlotLine(1.0, 0.0, (0, 100), Color.Goldenrod);
+            formsPlot1.plt.PlotLine(1.0, 0.0, (0, 100), Color.Goldenrod,lineWidth:2,label:"X=Y",lineStyle:ScottPlot.LineStyle.Dot); //uses the equation of the line to plot
+            //plot the 10% error lines
+            formsPlot1.plt.PlotLine(0, 0, 100.0 - 0.1 * 100, 100, color: Color.OrangeRed, lineWidth: 2, label:"10%error", lineStyle: ScottPlot.LineStyle.Dash);
+            formsPlot1.plt.PlotLine(0, 0, 100,100.0 - 0.1 * 100, color: Color.OrangeRed, lineWidth: 2, lineStyle:ScottPlot.LineStyle.Dash);
+
 
             formsPlot1.Render();//draw the chart on the PC screen
 

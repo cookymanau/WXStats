@@ -2,7 +2,11 @@
 using System.Drawing;
 using System.Windows.Forms;
 
-
+// this is a semi experimental program to test out the
+// scottplot plotting/charting program.  So far we have 
+//developed a  pretty good XY plot for testing and I think it
+// woulod be fine foir the QAQC dashboard.  Better than the one  I wrote in
+//any case.
 
 namespace WXStats
 {

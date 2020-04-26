@@ -19,8 +19,10 @@ namespace WXStats
         public static string fieldname;
         public static int pointcount;
 
-        public static DateTime startDate;
-        public static DateTime endDate;
+
+        //set this so I dont have to keep selecting dates
+        public static DateTime startDate = DateTime.Parse("1-Apr-2020");
+        public static DateTime endDate = DateTime.Parse("20-Apr-2020");
 
 
     }

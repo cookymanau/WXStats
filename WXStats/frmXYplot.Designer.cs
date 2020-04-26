@@ -66,11 +66,11 @@
             this.dgXYy = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.label11 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
+            this.lblY = new System.Windows.Forms.Label();
             this.lblPointIndex = new System.Windows.Forms.Label();
             this.lblX = new System.Windows.Forms.Label();
-            this.lblY = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgXY)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
@@ -89,8 +89,6 @@
             this.formsPlot1.MouseClicked += new System.Windows.Forms.MouseEventHandler(this.formsPlot1_MouseClicked);
             this.formsPlot1.Load += new System.EventHandler(this.formsPlot1_Load);
             this.formsPlot1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.formsPlot1_MouseClick);
-            this.formsPlot1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.formsPlot1_MouseDown);
-            this.formsPlot1.MouseHover += new System.EventHandler(this.formsPlot1_MouseHover);
             // 
             // panel1
             // 
@@ -232,7 +230,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(23, 13);
             this.label12.TabIndex = 21;
-            this.label12.Text = "Q2";
+            this.label12.Text = "Q3";
             // 
             // lblq3table2
             // 
@@ -425,16 +423,19 @@
             // 
             this.dgXYrecord.HeaderText = "Record";
             this.dgXYrecord.Name = "dgXYrecord";
+            this.dgXYrecord.ReadOnly = true;
             // 
             // dgXYx
             // 
             this.dgXYx.HeaderText = "X";
             this.dgXYx.Name = "dgXYx";
+            this.dgXYx.ReadOnly = true;
             // 
             // dgXYy
             // 
             this.dgXYy.HeaderText = "Y";
             this.dgXYy.Name = "dgXYy";
+            this.dgXYy.ReadOnly = true;
             // 
             // tableLayoutPanel1
             // 
@@ -468,6 +469,33 @@
             this.panel2.Size = new System.Drawing.Size(716, 15);
             this.panel2.TabIndex = 7;
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(216, 1);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(38, 13);
+            this.label11.TabIndex = 10;
+            this.label11.Text = "Point#";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(3, 1);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(75, 13);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Mouse Coords";
+            // 
+            // lblY
+            // 
+            this.lblY.AutoSize = true;
+            this.lblY.Location = new System.Drawing.Point(141, 1);
+            this.lblY.Name = "lblY";
+            this.lblY.Size = new System.Drawing.Size(14, 13);
+            this.lblY.TabIndex = 8;
+            this.lblY.Text = "Y";
+            // 
             // lblPointIndex
             // 
             this.lblPointIndex.AutoSize = true;
@@ -485,33 +513,6 @@
             this.lblX.Size = new System.Drawing.Size(14, 13);
             this.lblX.TabIndex = 6;
             this.lblX.Text = "X";
-            // 
-            // lblY
-            // 
-            this.lblY.AutoSize = true;
-            this.lblY.Location = new System.Drawing.Point(141, 1);
-            this.lblY.Name = "lblY";
-            this.lblY.Size = new System.Drawing.Size(14, 13);
-            this.lblY.TabIndex = 8;
-            this.lblY.Text = "Y";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(3, 1);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(75, 13);
-            this.label10.TabIndex = 9;
-            this.label10.Text = "Mouse Coords";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(216, 1);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(38, 13);
-            this.label11.TabIndex = 10;
-            this.label11.Text = "Point#";
             // 
             // frmXYplot
             // 
